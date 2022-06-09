@@ -5,7 +5,7 @@ const criarmodeloSimples = require('../Utils/paisesutils.js');
 
 async function buscarPaises(req, res){
 
-    let url = "https://servicodados.ibge.gov.br/api/v1/paises/ca";
+    let url = "https://servicodados.ibge.gov.br/api/v1/paises/br";
     
     const resposta = await fetch(url);
     const caixote = await resposta.json();

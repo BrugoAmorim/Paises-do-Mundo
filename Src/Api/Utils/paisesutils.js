@@ -1,18 +1,30 @@
 
-const criarmodeloSimples = require('../Models/modeloSimples.js').criarModel;
+const criarmodelo = require('../Models/modeloComposto.js');
 
 function modelocustomizado(req){
 
-    const modelo = criarmodeloSimples();
+    const modelo = criarmodelo.ModelComposto();
+    const arraySimples = criarmodelo.ModelSimples(req);
 
-    modelo.Nome = req["nome"]["abreviado"];
-    modelo.Area = req.area.total + " " + req.area.unidade.símbolo;
-    modelo.Capital = req.governo.capital.nome;
+    modelo.Id.M49 = arraySimples.M49;
+    modelo.Id.Abreviado = arraySimples.abreviado;
+    modelo.Nome.Sigla = arraySimples.sigla;
+    modelo.Nome.Pais = arraySimples.pais;
+    modelo.Capital = arraySimples.capital;
+    modelo.Area = arraySimples.area;
+    modelo.Localizacao.Regiao = arraySimples.regiao;
+    modelo.Localizacao.SubRegiao = arraySimples.subregiao;
+    modelo.Localizacao.RegiaoIntermediaria = arraySimples.regiaointermediaria;
 
     req["linguas"].map((item) => {
 
-        let nomelingua = item.nome;
-        modelo["Linguas"].push(nomelingua);
+        let infoLinguas = {
+
+            Sigla: item["id"]["ISO-639-1"],
+            Lingua: item.nome,
+        }
+      
+        modelo["Linguas"].push(infoLinguas);
     })
 
     req["unidades-monetarias"].map((item) => {
