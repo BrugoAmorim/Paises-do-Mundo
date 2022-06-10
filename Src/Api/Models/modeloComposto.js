@@ -26,7 +26,7 @@ function ModelComposto(){
 }
 
 function ModelSimples(req){
-
+    
     const arraySimples = {
 
         sigla: req["id"]["ISO-3166-1-ALPHA-2"],
@@ -36,9 +36,26 @@ function ModelSimples(req){
         area: req.area.total + " " + req.area.unidade["símbolo"],
         capital: req.governo.capital.nome,
         regiao: req["localizacao"]["regiao"]["nome"],
-        subregiao: req["localizacao"]["sub-regiao"]["nome"],
-        regiaointermediaria: req["localizacao"]["regiao-intermediaria"]["nome"]        
+        subregiao: '',
+        regiaointermediaria: ''
     };
+
+    if(req["localizacao"]["regiao-intermediaria"] === null){
+        
+        let InterReg = "Não disponibilizado";
+        arraySimples.regiaointermediaria = InterReg;
+    } 
+    else
+        arraySimples.regiaointermediaria = req["localizacao"]["regiao-intermediaria"]["nome"];
+
+    if(req["localizacao"]["sub-regiao"] === null){
+    
+        let SubReg = "Não disponibilizado";
+        arraySimples.subregiao = SubReg; 
+    }
+    else
+        arraySimples.subregiao = req["localizacao"]["sub-regiao"]["nome"];
+
 
     return arraySimples;
 }
