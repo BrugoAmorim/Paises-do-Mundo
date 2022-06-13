@@ -1,10 +1,11 @@
 
-const myapp = require('../app.js').myapp;
+const myapp = require('../servers.js').myapp;
+
 const controllerPaises = require('../Api/Controller/paisescontroller.js');
 
 myapp.get('/', (req, res) => {
 
-    res.send("ola mundo");
+    res.render('home');
 })
 
 myapp.get('/buscar-paises', controllerPaises.buscarPaises);
