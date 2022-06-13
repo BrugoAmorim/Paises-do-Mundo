@@ -1,7 +1,7 @@
 
 const fetch = require('cross-fetch');
 
-const criarmodeloSimples = require('../Utils/paisesutils.js');
+const conversor = require('../Utils/paisesutils.js');
 
 async function buscarPaises(req, res){
 
@@ -14,7 +14,7 @@ async function buscarPaises(req, res){
         const paises = [];
         caixote.map((item) => {
 
-            const infoPais = criarmodeloSimples.modelocustomizado(item);
+            const infoPais = conversor.modelocustomizado(item);
             paises.push(infoPais);
         })
 

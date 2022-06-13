@@ -1,10 +1,41 @@
 
-const criarmodelo = require('../Models/modeloComposto.js');
+const criarmodelo = require('../Models/modelspaises.js');
+
+function converterModelPadrao(req){
+    
+    let arraySimples = criarmodelo.ModelSimples();
+    arraySimples.sigla = req["id"]["ISO-3166-1-ALPHA-2"];
+    arraySimples.pais = req["nome"]["abreviado"]; 
+    arraySimples.M49 = req["id"]["M49"];
+    arraySimples.abreviado = req["id"]["ISO-3166-1-ALPHA-3"];
+    arraySimples.area = req.area.total + " " + req.area.unidade["símbolo"];
+    arraySimples.capital = req.governo.capital.nome;
+    arraySimples.regiao = req["localizacao"]["regiao"]["nome"];
+
+    if(req["localizacao"]["regiao-intermediaria"] === null){
+        
+        let InterReg = "Não disponibilizado";
+        arraySimples.regiaointermediaria = InterReg;
+    } 
+    else
+        arraySimples.regiaointermediaria = req["localizacao"]["regiao-intermediaria"]["nome"];
+
+    if(req["localizacao"]["sub-regiao"] === null){
+    
+        let SubReg = "Não disponibilizado";
+        arraySimples.subregiao = SubReg; 
+    }
+    else
+        arraySimples.subregiao = req["localizacao"]["sub-regiao"]["nome"];
+
+
+    return arraySimples;
+}
 
 function modelocustomizado(req){
 
     const modelo = criarmodelo.ModelComposto();
-    const arraySimples = criarmodelo.ModelSimples(req);
+    const arraySimples = converterModelPadrao(req);
 
     modelo.Id.M49 = arraySimples.M49;
     modelo.Id.Abreviado = arraySimples.abreviado;
