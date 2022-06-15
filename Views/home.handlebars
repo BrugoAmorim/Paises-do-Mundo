@@ -9,38 +9,52 @@
     <title>Países do Mundo</title>
 </head>
 <body>
-    <div class="rodape">
+    <header class="rodape">
         <div class="titulorodape">
             <img height="100%" src="/Images/logo-onu.png" alt="logo ONU">
             <div class="blocotitulo">
                 <h1 class="titulo">Países Do Mundo</h1>
+                <div class="blocoimgapi">
+                    <a href="https://servicodados.ibge.gov.br/api/docs/paises" hreflang="pt-br" target="_blank">
+                        <img src="/Images/api-image.png" alt="api" height="70em">
+                    </a>
+                    <a href="https://github.com/BrugoAmorim" target="_blank">    
+                        <img src="/Images/logo-github.png" height="55em" alt="logo do github">
+                    </a>
+                </div>
             </div>
-            <img height="100%" src="/Images/logo-onu.png" alt="logo ONU">
         </div>
-    </div>
-    <div class="container">
+    </header>
+    <article class="corpo">
         <div class="conteudo">
-            <div class="buscarpais">                
+            <div class="buscarpais">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Busque um país pelo nome" aria-describedby="button-addon2">
                     <button class="btn btn-success">Buscar</button>
                 </div>
             </div>
             <div class="containerpaises">
-                <table class="table table-dark">
-                    <thead>
-                        <th>País</th>
-                        <th>Capital</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Brasil</td>
-                            <td>brasília</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="containertabela">
+                    <table class="table table-dark table-hover">
+                        <thead style="position: sticky;">
+                            <th>País</th>
+                            <th>Capital</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Brasil</td>
+                                <td>brasília</td>
+                            </tr>
+                        </tbody>    
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    </article>
+    <footer class="informacoes">
+        <div class="blocodev">
+            <h1 class="lead">Desenvolvido por &reg;BrugoAmorim, 2022</h1>
+        </div>
+    </footer>
 </body>
 </html>

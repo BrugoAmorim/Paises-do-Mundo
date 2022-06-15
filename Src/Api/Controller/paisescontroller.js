@@ -18,7 +18,7 @@ async function buscarPaises(req, res){
             paises.push(infoPais);
         })
 
-        res.send(paises);
+        
 }
 
 module.exports = { buscarPaises };

@@ -1,8 +1,7 @@
 
 body{
     height: 110vh;
-    padding: 0%;
-    margin: 0%;
+    width: 100%;
 }
 
 .rodape{
@@ -36,8 +35,8 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.container{
-    height: 85%;
+.corpo{
+    height: 100%;
     display: flex;
     justify-content: center;
 }
@@ -45,11 +44,12 @@ body{
 .conteudo{
     height: 100%;
     width: 100%;
+    padding: 2%;
 
+    background-repeat: no-repeat;
     background-size: 100%;
     background-image: url('/Images/bandeiras-paises.png');
 
-    padding: 2%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -70,4 +70,47 @@ body{
 
     display: block;
     overflow-y: auto;
+}
+
+.containertabela{
+    height: auto;
+    width: 100%;
+
+    display: flex;
+}
+
+.informacoes{
+    height: 10%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.blocoimgapi{
+    height: 80%;
+    width: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.blocodev{
+
+    height: 80%;
+    width: auto;
+
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
