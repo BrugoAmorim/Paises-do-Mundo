@@ -5,20 +5,25 @@ const conversor = require('../Utils/paisesutils.js');
 
 async function buscarPaises(req, res){
 
-    const { sigla } = req.query;
-    let url = "https://servicodados.ibge.gov.br/api/v1/paises/" + sigla;
+    let url = "https://servicodados.ibge.gov.br/api/v1/paises/";
         
-        const resposta = await fetch(url);
-        const caixote = await resposta.json();
+    const resposta = await fetch(url);
+    const caixote = await resposta.json();
 
-        const paises = [];
-        caixote.map((item) => {
+    let arrayformatado = [];
+    caixote.map((item) => {
 
-            const infoPais = conversor.modelocustomizado(item);
-            paises.push(infoPais);
-        })
+        arrayformatado.push(conversor.modelocustomizado(item));
+    })
 
-        
+    let arraysemRepeticaoItens = [];
+    arrayformatado.map((data) => {
+
+        let json = arraysemRepeticaoItens.filter(x => x["Nome"]["Pais"] == data["Nome"]["Pais"]);
+        if(json.length == 0)
+            arraysemRepeticaoItens.push(data);
+    })
+
+    res.render('home', { colecao: arraysemRepeticaoItens })
 }
-
 module.exports = { buscarPaises };
