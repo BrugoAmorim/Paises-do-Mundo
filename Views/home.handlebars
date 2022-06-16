@@ -35,16 +35,20 @@
             </div>
             <div class="containerpaises">
                 <div class="containertabela">
-                    <table class="table table-dark table-hover">
-                        <thead style="position: sticky;">
+                    <table class="table table-hover">
+                        <thead class="table-success">
                             <th>País</th>
                             <th>Capital</th>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Brasil</td>
-                                <td>brasília</td>
-                            </tr>
+                        <tbody class="table-dark">
+                            {{#each colecao}}
+                                <tr>
+                                    {{#Nome}}
+                                        <td>{{Pais}}</td>
+                                    {{/Nome}}
+                                    <td>{{Capital}}</td>
+                                </tr>
+                            {{/each}}
                         </tbody>    
                     </table>
                 </div>
