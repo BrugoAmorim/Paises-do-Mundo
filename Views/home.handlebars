@@ -28,10 +28,10 @@
     <article class="corpo">
         <div class="conteudo">
             <div class="buscarpais">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Busque um país pelo nome" aria-describedby="button-addon2">
+                <form class="input-group mb-3" action="/filtrarpais" method="post">
+                    <input name="nomePais" type="text" placeholder="Busque um país pelo nome" class="form-control">
                     <button class="btn btn-success">Buscar</button>
-                </div>
+                </form>
             </div>
             <div class="containerpaises">
                 <div class="containertabela">
