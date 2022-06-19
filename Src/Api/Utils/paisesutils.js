@@ -67,4 +67,17 @@ function modelocustomizado(req){
     return modelo;
 }
 
-module.exports = { modelocustomizado };
+function tirarRepeticoes(req){
+
+    let arraysemRepeticaoItens = [];
+    req.map((item) => {
+
+        let json = arraysemRepeticaoItens.filter(x => x["Nome"]["Pais"] == item["Nome"]["Pais"]);
+        if(json.length == 0)
+            arraysemRepeticaoItens.push(item);
+    })
+
+    return arraysemRepeticaoItens;
+}
+
+module.exports = { modelocustomizado, tirarRepeticoes };
