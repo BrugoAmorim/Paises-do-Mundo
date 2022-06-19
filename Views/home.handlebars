@@ -28,29 +28,25 @@
     <article class="corpo">
         <div class="conteudo">
             <div class="buscarpais">
-                <form class="input-group mb-3" action="/filtrarpais" method="post">
+                <form class="input-group mb-3" action="/paisesdomundo" method="post">
                     <input name="nomePais" type="text" placeholder="Busque um país pelo nome" class="form-control">
                     <button class="btn btn-success">Buscar</button>
                 </form>
             </div>
             <div class="containerpaises">
-                <div class="containertabela">
-                    <table class="table table-light table-hover">
-                        <thead class="table-dark">
-                            <th>País</th>
-                            <th>Capital</th>
-                        </thead>
-                        <tbody>
-                            {{#each colecao}}
-                                <tr>
-                                    {{#Nome}}
-                                        <td>{{Pais}}</td>
-                                    {{/Nome}}
-                                    <td>{{Capital}}</td>
-                                </tr>
-                            {{/each}}
-                        </tbody>    
-                    </table>
+                <div class="listapaises">
+                    {{#each colecao}}
+                        <div class="blocopais">
+                            {{#Nome}}
+                                <div class="Pais">
+                                    <span class="lead">{{Pais}}</span>
+                                </div>
+                            {{/Nome}}
+                            <div class="Capital">
+                                <span class="lead">{{Capital}}</span>
+                            </div>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

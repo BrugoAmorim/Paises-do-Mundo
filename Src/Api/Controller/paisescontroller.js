@@ -5,7 +5,11 @@ const conversor = require('../Utils/paisesutils.js');
 
 async function listarPaises(req, res){
 
-    let url = "https://servicodados.ibge.gov.br/api/v1/paises/" + req.body.nomePais;
+    let nomePais = req.body.nomePais;
+    if(nomePais === "")
+        nomePais = "";
+
+    let url = "https://servicodados.ibge.gov.br/api/v1/paises/" + nomePais;
         
     const resposta = await fetch(url);
     const caixote = await resposta.json();
@@ -24,7 +28,7 @@ async function listarPaises(req, res){
             arraysemRepeticaoItens.push(data);
     })
 
-    res.render('home', { colecao: arraysemRepeticaoItens })
+    res.render('home', { colecao: arraysemRepeticaoItens})
 }
 
 module.exports = { listarPaises };

@@ -15,7 +15,7 @@ myapp.use(bodyParser.json());
 
 module.exports = { Express, myapp };
 
-myapp.listen(5000, () => {
+myapp.listen(3000, () => {
 
-    console.log("Servidor rodando")
+    console.log("Servidor rodando, url: localhost:3000/paisesdomundo")
 })
