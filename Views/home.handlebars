@@ -35,10 +35,11 @@
             </div>
             <div class="containerpaises">
                 <div class="listapaises">
+                    {{#each colecao}}
                     <div class="blocopais">
                         <div class="Pais-Capital">
                             <div class="Pais">
-                                <span class="lead">Brasil</span>
+                                <span class="lead">{{Nome.Pais}}</span>
                             </div>
                         </div>
                         <div class="info-adicionais">
@@ -48,12 +49,14 @@
                                         Abreviado/Capital:
                                     </strong>
                                     <p>
+                                        {{Nome.Sigla}} / {{Capital}}
                                         <!-- sigla e abreaviacao do país-->
                                     </p>
                                 </div>
                                 <div class="moeda">
                                     <strong>Moeda:</strong>
                                     <p>
+                                        {{Moeda}}
                                         <!-- campo da moeda -->
                                     </p>
                                 </div>
@@ -62,6 +65,7 @@
                                 <div class="area">
                                     <strong>Área:</strong>
                                     <p>
+                                        {{Area}}
                                         <!-- campo para valor da area -->
                                     </p>
                                 </div>
@@ -69,6 +73,9 @@
                                     <div class="bloco-linguas">
                                         <strong>Línguas:</strong>
                                         <p>
+                                            {{#Linguas}}
+                                                {{Lingua}},
+                                            {{/Linguas}}
                                             <!-- local aonde fica as linguas do pais -->
                                         </p>
                                     </div>
@@ -78,24 +85,28 @@
                                 <div class="regiao">
                                     <strong>Região:</strong>
                                     <span>
+                                        {{Localizacao.Regiao}}
                                         <!-- regiao do pais -->
                                     </span>
                                 </div>
                                 <div class="subregiao">
                                     <strong>Sub-Região:</strong>
                                     <span>
+                                        {{Localizacao.SubRegiao}}
                                         <!-- sub regiao do pais--->
                                     </span>
                                 </div>
                                 <div class="regiao-intermediaria">
                                     <strong>Região Intermediária:</strong>
                                     <span>
+                                        {{Localizacao.RegiaoIntermediaria}}
                                         <!-- regiao intermediaria do pais-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

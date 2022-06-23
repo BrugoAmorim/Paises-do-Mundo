@@ -14,9 +14,9 @@ async function listarPaises(req, res){
         arrayformatado.push(conversor.modelocustomizado(item));
     })
 
-    let listasemRepeticao = conversor.tirarRepeticoes(arrayformatado);
+    let listasemRepeticao = conversor.tirarRepeticoes(arrayformatado);     
     let filtrado = listasemRepeticao.filter(x => x["Nome"]["Pais"] === req.body.nomePais);
-    
+
     if(filtrado.length == 0)
         res.render('home', {colecao: listasemRepeticao})
     else

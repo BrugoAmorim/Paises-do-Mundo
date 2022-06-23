@@ -1,4 +1,6 @@
 
+const { json } = require('body-parser');
+const { info } = require('console');
 const criarmodelo = require('../Models/modelspaises.js');
 
 function converterModelPadrao(req){
@@ -63,14 +65,30 @@ function modelocustomizado(req){
         let tipomoeda = item.nome;
         modelo["Moeda"].push(tipomoeda);
     })
-
     return modelo;
 }
 
 function tirarRepeticoes(req){
 
     let arraysemRepeticaoItens = [];
+
     req.map((item) => {
+
+        let infoPais = item;
+        let jsonpais = req.filter(x => x["Nome"]["Pais"] == item["Nome"]["Pais"]);
+        
+        // metodo que permiti adicionar diversas linguas de um país em um unico array
+        jsonpais.map((data)=> {
+
+            data["Linguas"].map((lingua) => {
+
+                let buscarlingua = infoPais.Linguas.filter(x => x == lingua);
+
+                if(buscarlingua.length == 0)
+                    infoPais.Linguas.push(lingua)
+
+            })
+        })
 
         let json = arraysemRepeticaoItens.filter(x => x["Nome"]["Pais"] == item["Nome"]["Pais"]);
         if(json.length == 0)
